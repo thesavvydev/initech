@@ -1,7 +1,11 @@
 export const metadata = {
-  title: "Initech",
+  title: "Initech Payroll",
 };
 
 export default function Page() {
-  return <div>Payroll</div>;
+  return (
+    <>
+      <h1 className="text-2xl font-bold">Payroll</h1>
+    </>
+  );
 }
