@@ -1,8 +1,9 @@
 "use client";
 
-import { Sidebar } from "flowbite-react";
+import { Sidebar, theme } from "flowbite-react";
 import { usePathname } from "next/navigation";
 import { HiCreditCard, HiUserGroup } from "react-icons/hi";
+import { twMerge } from "tailwind-merge";
 
 const menuItems = [
   {
@@ -20,7 +21,17 @@ const menuItems = [
 export default function LayoutSidebar() {
   const pathname = usePathname();
   return (
-    <Sidebar>
+    <Sidebar
+      theme={{
+        root: {
+          base: twMerge(
+            theme.sidebar.root.base,
+            "sticky top-0 shrink-0 h-screen"
+          ),
+          inner: twMerge(theme.sidebar.root.inner, "bg-white"),
+        },
+      }}
+    >
       <Sidebar.Logo href="/" img="/logo.png" imgAlt="Initech">
         Initech
       </Sidebar.Logo>
