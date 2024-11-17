@@ -1,5 +1,7 @@
 import { Poppins } from "next/font/google";
+import { twMerge } from "tailwind-merge";
 import "./global.css";
+import LayoutSidebar from "./(authenticated)/sidebar";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -12,8 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={poppins.className}>{children}</body>
+    <html lang="en" className="h-full bg-gray-100">
+      <body className={twMerge(poppins.className, "h-full")}>{children}</body>
     </html>
   );
 }
