@@ -52,7 +52,11 @@ export default async function Page({
         )}
         <Form action="/employees">
           <fieldset className="flex items-center gap-2">
-            <TextInput className="w-full" name="search" />
+            <TextInput
+              className="w-full"
+              name="search"
+              placeholder="Search by name, quote or status."
+            />
             <Button>Search</Button>
           </fieldset>
         </Form>

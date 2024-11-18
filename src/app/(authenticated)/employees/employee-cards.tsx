@@ -31,16 +31,18 @@ export default function EmployeeCards({
                 rounded
                 size="lg"
               />
-              <p className="text-center font-bold text-xl">{`${employee.firstName} ${employee.lastName}`}</p>
-              <p className="text-center">{`Started ${new Intl.DateTimeFormat(
-                "en-us",
-                {
-                  day: "numeric",
-                  month: "short",
-                  year: "numeric",
-                }
-              ).format(new Date(employee.dateStarted))}`}</p>
-              <blockquote className="bg-gray-50 p-4 border border-gray-200">
+              <div>
+                <p className="text-center font-bold text-xl text-gray-700">{`${employee.firstName} ${employee.lastName}`}</p>
+                <p className="text-center text-gray-500">{`Started ${new Intl.DateTimeFormat(
+                  "en-us",
+                  {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                  }
+                ).format(new Date(employee.dateStarted))}`}</p>
+              </div>
+              <blockquote className="bg-gray-50 p-4 border border-gray-200 text-center">
                 {employee.quote}
               </blockquote>
             </Card>

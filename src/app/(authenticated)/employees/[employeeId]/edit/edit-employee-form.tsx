@@ -7,16 +7,16 @@ import {
   Textarea,
   TextInput,
 } from "flowbite-react";
-import toDateInputValue from "utils/toDateInputValue";
-import { editEmployee } from "./actions";
-import { Employee } from "types";
 import Form from "next/form";
 import { useFormStatus } from "react-dom";
+import { Employee } from "types";
+import toDateInputValue from "utils/toDateInputValue";
+import { editEmployee } from "./actions";
 
 export function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" disabled={pending}>
+    <Button type="submit" disabled={pending} color="submit">
       {pending ? "Submitting..." : "Submit"}
     </Button>
   );

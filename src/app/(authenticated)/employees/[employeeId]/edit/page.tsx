@@ -3,6 +3,10 @@ import { HiChevronLeft } from "react-icons/hi";
 import { Employee } from "types";
 import EditEmployeeForm from "./edit-employee-form";
 
+export const metadata = {
+  title: "Initech Employee",
+};
+
 export default async function Page({
   params,
 }: {

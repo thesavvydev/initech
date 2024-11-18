@@ -1,6 +1,7 @@
 import { Poppins } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 import "./global.css";
+import { Flowbite, theme } from "flowbite-react";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -15,7 +16,51 @@ export default function RootLayout({
   return (
     <html lang="en" className="min-h-full bg-gray-100">
       <body className={twMerge(poppins.className, "min-h-full")}>
-        {children}
+        <Flowbite
+          theme={{
+            theme: {
+              textInput: {
+                field: {
+                  input: {
+                    colors: {
+                      gray: twMerge(
+                        theme.textInput.field.input.colors.gray,
+                        "focus:border-red-500 focus:ring-red-500"
+                      ),
+                    },
+                  },
+                },
+              },
+              select: {
+                field: {
+                  select: {
+                    colors: {
+                      gray: twMerge(
+                        theme.textInput.field.input.colors.gray,
+                        "focus:border-red-500 focus:ring-red-500"
+                      ),
+                    },
+                  },
+                },
+              },
+              textarea: {
+                colors: {
+                  gray: twMerge(
+                    theme.textInput.field.input.colors.gray,
+                    "focus:border-red-500 focus:ring-red-500"
+                  ),
+                },
+              },
+              button: {
+                color: {
+                  submit: "bg-red-500 text-white",
+                },
+              },
+            },
+          }}
+        >
+          {children}
+        </Flowbite>
       </body>
     </html>
   );

@@ -3,6 +3,7 @@
 import { HiChevronDown, HiChevronUp } from "react-icons/hi";
 import { STATUS_BADGE_COLORS } from "consts/status-badge-colors";
 import {
+  Avatar,
   Badge,
   Card,
   Table,
@@ -115,8 +116,16 @@ export default function EmployeesTable({
         />
         <TableBody>
           {sortedEmployees.map((employee) => (
-            <TableRow key={employee.id}>
+            <TableRow
+              key={employee.id}
+              theme={{ hovered: "hover:bg-yellow-100" }}
+            >
               <TableCell className="flex items-center gap-2 whitespace-nowrap">
+                <Avatar
+                  size="sm"
+                  rounded
+                  placeholderInitials={`${employee.firstName[0]}${employee.lastName[0]}`}
+                />
                 <Link
                   className="text-sky-600"
                   href={`/employees/${employee.id}/edit`}
