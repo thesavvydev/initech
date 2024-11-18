@@ -35,6 +35,59 @@ function sortEmployees(column: string, isAscending: boolean) {
   };
 }
 
+function TableColumnHeaders({
+  department,
+  sortDepartmentColumn,
+  sortDepartmentDirIsAscending,
+}: {
+  department: string;
+  sortDepartmentColumn: string;
+  sortDepartmentDirIsAscending: boolean;
+}) {
+  const columnHeaders = ["Name", "Start Date", "Quote", "Status"];
+
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleUpdateSortParams = (param: string) => () => {
+    const newParams = new URLSearchParams(searchParams.toString());
+    newParams.set(`sort_${department}_col`, param);
+    newParams.set(
+      `sort_${department}_dir`,
+      sortDepartmentDirIsAscending ? "desc" : "asc"
+    );
+
+    router.push(`${pathname}?${newParams.toString()}`, { scroll: false });
+  };
+
+  const isColumnAscending = (column: string) =>
+    sortDepartmentColumn === column && sortDepartmentDirIsAscending;
+
+  return (
+    <TableHead>
+      {columnHeaders.map((columnHeader) => {
+        const SortingIcon = isColumnAscending(columnHeader)
+          ? HiChevronDown
+          : HiChevronUp;
+
+        return (
+          <TableHeadCell
+            className="whitespace-nowrap cursor-pointer"
+            key={columnHeader}
+            onClick={handleUpdateSortParams(columnHeader)}
+          >
+            <div className="flex items-center gap-1">
+              {columnHeader}
+              <SortingIcon className="size-5" />
+            </div>
+          </TableHeadCell>
+        );
+      })}
+    </TableHead>
+  );
+}
+
 export default function EmployeesTable({
   department,
   employees,
@@ -42,57 +95,24 @@ export default function EmployeesTable({
   department: string;
   employees: Employee[];
 }) {
-  const router = useRouter();
-  const pathname = usePathname();
   const searchParams = useSearchParams();
-  const sortDepartmentColumn =
-    searchParams.get(`sort_${department.toLowerCase()}_col`) ?? "";
+  const sortDepartmentColumn = searchParams.get(`sort_${department}_col`) ?? "";
   const sortDepartmentDirIsAscending =
-    searchParams.get(`sort_${department.toLowerCase()}_dir`) === "asc";
+    searchParams.get(`sort_${department}_dir`) === "asc";
 
-  const handleUpdateSortParams = (param: string) => () => {
-    const newParams = new URLSearchParams(searchParams.toString());
-    newParams.set(`sort_${department.toLowerCase()}_col`, param);
-    newParams.set(
-      `sort_${department.toLowerCase()}_dir`,
-      sortDepartmentDirIsAscending ? "desc" : "asc"
-    );
-
-    router.push(`${pathname}?${newParams.toString()}`, { scroll: false });
-  };
   const sortedEmployees = employees.toSorted(
     sortEmployees(sortDepartmentColumn, sortDepartmentDirIsAscending)
   );
-
-  const isColumnAscending = (column: string) => () =>
-    sortDepartmentColumn === column && sortDepartmentDirIsAscending;
-
-  const columnHeaders = ["Name", "Start Date", "Quote", "Status"];
 
   return (
     <Card key={department} className="hidden lg:table">
       <h3 className="text-xl font-semibold">{department}</h3>
       <Table hoverable>
-        <TableHead>
-          {columnHeaders.map((columnHeader) => {
-            const SortingIcon = isColumnAscending(columnHeader)
-              ? HiChevronDown
-              : HiChevronUp;
-
-            return (
-              <TableHeadCell
-                className="whitespace-nowrap cursor-pointer"
-                key={columnHeader}
-                onClick={handleUpdateSortParams(columnHeader)}
-              >
-                <div className="flex items-center gap-1">
-                  {columnHeader}
-                  <SortingIcon className="size-5" />
-                </div>
-              </TableHeadCell>
-            );
-          })}
-        </TableHead>
+        <TableColumnHeaders
+          department={department}
+          sortDepartmentColumn={sortDepartmentColumn}
+          sortDepartmentDirIsAscending={sortDepartmentDirIsAscending}
+        />
         <TableBody>
           {sortedEmployees.map((employee) => (
             <TableRow key={employee.id}>
