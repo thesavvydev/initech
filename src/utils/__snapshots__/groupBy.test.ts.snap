@@ -1,0 +1,34 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`groupBy > matches snapshot 1`] = `
+{
+  "a": [
+    {
+      "group": "a",
+      "id": 1,
+    },
+    {
+      "group": "a",
+      "id": 3,
+    },
+    {
+      "group": "a",
+      "id": 4,
+    },
+    {
+      "group": "a",
+      "id": 5,
+    },
+  ],
+  "b": [
+    {
+      "group": "b",
+      "id": 2,
+    },
+    {
+      "group": "b",
+      "id": 6,
+    },
+  ],
+}
+`;

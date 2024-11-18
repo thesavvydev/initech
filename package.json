@@ -12,23 +12,30 @@
     "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.0.1",
     "@types/node": "20.10.6",
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+    "@vitejs/plugin-react": "^4.3.3",
     "autoprefixer": "^10.4.20",
     "eslint": "8.57.0",
     "eslint-config-next": "^15.0.3",
+    "jsdom": "^25.0.1",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.15",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "vite-tsconfig-paths": "^5.1.2",
+    "vitest": "^2.1.5"
   },
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
+    "check-all": "next lint && tsc --noemit",
     "check-ts": "tsc --noemit",
-    "check-all": "next lint && tsc --noemit"
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start",
+    "test": "vitest"
   },
   "browserslist": [
     ">0.2%",
