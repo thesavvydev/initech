@@ -10,7 +10,7 @@ export const menuItems = [
   {
     href: "/employees",
     icon: HiUserGroup,
-    isActive: (pathname: string) => pathname === "/employees",
+    isActive: (pathname: string) => pathname.startsWith("/employees"),
     name: "Employees",
   },
 ];
