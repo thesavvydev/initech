@@ -29,9 +29,12 @@ export default function LayoutSidebar() {
         },
       }}
     >
-      <Sidebar.Logo href="/" img="/logo.png" imgAlt="Initech">
-        Initech
-      </Sidebar.Logo>
+      <Sidebar.Logo
+        href="/"
+        img="/logo.png"
+        imgAlt="Initech"
+        theme={{ img: "h-24 mx-auto" }}
+      />
       <Sidebar.Items>
         <Sidebar.ItemGroup>
           {menuItems.map((menuItem) => (
