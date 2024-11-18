@@ -34,6 +34,7 @@
     "check-all": "next lint && tsc --noemit",
     "check-ts": "tsc --noemit",
     "dev": "next dev",
+    "install-packages-with-peer-deps": "npm i --legacy-peer-deps",
     "lint": "next lint",
     "start": "next start",
     "test": "vitest"
