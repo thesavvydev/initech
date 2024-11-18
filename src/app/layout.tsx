@@ -1,7 +1,7 @@
 import { Poppins } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 import "./global.css";
-import LayoutSidebar from "./(authenticated)/sidebar";
+import LayoutSidebar from "./(authenticated)/layout-sidebar";
 
 const poppins = Poppins({
   subsets: ["latin"],

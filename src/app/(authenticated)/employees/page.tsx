@@ -9,20 +9,20 @@ import {
   TableHeadCell,
   TableRow,
   TextInput,
+  Tooltip,
 } from "flowbite-react";
 import Form from "next/form";
 import Link from "next/link";
 import { HiX } from "react-icons/hi";
+import { twMerge } from "tailwind-merge";
 import { Employee } from "types";
 import groupBy from "utils/groupBy";
+import EmployeesTable from "./employees-table";
+import EmployeesCards from "./employee-cards";
+import { Fragment } from "react";
 
 export const metadata = {
   title: "Initech Employees",
-};
-
-const STATUS_BADGE_COLORS = {
-  active: "success",
-  inactive: "warning",
 };
 
 export default async function Page({
@@ -72,48 +72,10 @@ export default async function Page({
       </Card>
       {Object.entries(employeesGroupedByDepartment).map(
         ([department, employees]) => (
-          <Card key={department}>
-            <h3>{department}</h3>
-            <Table hoverable>
-              <TableHead>
-                <TableHeadCell>Name</TableHeadCell>
-                <TableHeadCell>Start Date</TableHeadCell>
-                <TableHeadCell>Quote</TableHeadCell>
-                <TableHeadCell>Status</TableHeadCell>
-              </TableHead>
-              <TableBody>
-                {employees.map((employee) => (
-                  <TableRow key={employee.id}>
-                    <TableCell>
-                      <Link
-                        className="text-sky-600"
-                        href={`/employees/${employee.id}/edit`}
-                      >{`${employee.firstName} ${employee.lastName}`}</Link>
-                    </TableCell>
-                    <TableCell>
-                      {new Intl.DateTimeFormat("en-us", {
-                        day: "numeric",
-                        month: "short",
-                        year: "numeric",
-                      }).format(new Date(employee.dateStarted))}
-                    </TableCell>
-                    <TableCell>{employee.quote}</TableCell>
-                    <TableCell className="capitalize w-0">
-                      <Badge
-                        color={
-                          STATUS_BADGE_COLORS[
-                            employee.status as keyof typeof STATUS_BADGE_COLORS
-                          ]
-                        }
-                      >
-                        {employee.status}
-                      </Badge>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </Card>
+          <Fragment key={department}>
+            <EmployeesCards employees={employees} department={department} />
+            <EmployeesTable employees={employees} department={department} />
+          </Fragment>
         )
       )}
     </>

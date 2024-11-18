@@ -2,21 +2,8 @@
 
 import { Sidebar, theme } from "flowbite-react";
 import { usePathname } from "next/navigation";
-import { HiCreditCard, HiUserGroup } from "react-icons/hi";
 import { twMerge } from "tailwind-merge";
-
-const menuItems = [
-  {
-    href: "/",
-    name: "Payroll",
-    icon: HiCreditCard,
-  },
-  {
-    href: "/employees",
-    name: "Employees",
-    icon: HiUserGroup,
-  },
-];
+import { menuItems } from "./menu-items";
 
 export default function LayoutSidebar() {
   const pathname = usePathname();
@@ -26,7 +13,7 @@ export default function LayoutSidebar() {
         root: {
           base: twMerge(
             theme.sidebar.root.base,
-            "sticky top-0 shrink-0 h-screen"
+            "sticky top-0 shrink-0 h-screen hidden lg:block"
           ),
           inner: twMerge(theme.sidebar.root.inner, "bg-white"),
         },
@@ -39,7 +26,7 @@ export default function LayoutSidebar() {
         <Sidebar.ItemGroup>
           {menuItems.map((menuItem) => (
             <Sidebar.Item
-              active={pathname === menuItem.href}
+              active={menuItem.isActive(pathname)}
               href={menuItem.href}
               icon={menuItem.icon}
               key={menuItem.name}
