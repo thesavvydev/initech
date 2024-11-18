@@ -10,7 +10,7 @@ export async function GET(
   const employee = data.find((e) => e.id === Number(employeeId));
   if (employee) return NextResponse.json(employee);
 
-  return NextResponse.error();
+  return NextResponse.json(null, { status: 404 });
 }
 
 export async function PUT(
@@ -22,7 +22,7 @@ export async function PUT(
   const employee = data.find((e) => e.id === Number(employeeId));
   if (employee) return NextResponse.json(employee);
 
-  return NextResponse.error();
+  return NextResponse.json(null, { status: 404 });
 }
 
 export async function PATCH(
@@ -34,7 +34,7 @@ export async function PATCH(
   const employee = data.find((e) => e.id === Number(employeeId));
   if (employee) return NextResponse.json(employee);
 
-  return NextResponse.error();
+  return NextResponse.json(null, { status: 404 });
 }
 
 export async function DELETE(
@@ -46,5 +46,5 @@ export async function DELETE(
   const employee = data.find((e) => e.id === Number(employeeId));
   if (employee) return NextResponse.json(employee);
 
-  return NextResponse.error();
+  return NextResponse.json(null, { status: 404 });
 }

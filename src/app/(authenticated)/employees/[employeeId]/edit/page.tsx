@@ -2,6 +2,7 @@ import Link from "next/link";
 import { HiChevronLeft } from "react-icons/hi";
 import { Employee } from "types";
 import EditEmployeeForm from "./edit-employee-form";
+import { notFound } from "next/navigation";
 
 export const metadata = {
   title: "Initech Employee",
@@ -17,6 +18,8 @@ export default async function Page({
   const employee: Employee = await fetch(
     `http://localhost:3000/api/employees/${employeeId}`
   ).then((res) => res.json());
+
+  if (!employee) return notFound();
 
   return (
     <>
