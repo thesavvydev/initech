@@ -1,16 +1,10 @@
 {
-  "include": [
-    "./src/**/*",
-    ".next/types/**/*.ts"
-  ],
+  "include": ["./src/**/*", ".next/types/**/*.ts"],
   "compilerOptions": {
     "baseUrl": "src/",
     "strict": true,
     "esModuleInterop": true,
-    "lib": [
-      "dom",
-      "es2015"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "jsx": "preserve",
     "target": "ES2017",
     "allowJs": true,
@@ -28,7 +22,5 @@
     ],
     "module": "esnext"
   },
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
