@@ -4,6 +4,10 @@
     {
       "command": "npm i --legacy-peer-deps",
       "name": "Install Dependencies"
+    },
+    {
+      "command": "npm run build",
+      "name": "Build project"
     }
   ],
 
@@ -11,12 +15,12 @@
   "tasks": {
     "start": {
       "name": "start",
-      "command": "npm run start"
+      "command": "npm run start",
+      "runAtStart": true
     },
     "dev": {
       "name": "dev",
-      "command": "npm run dev",
-      "runAtStart": true
+      "command": "npm run dev"
     },
     "build": {
       "name": "build",
