@@ -1,6 +1,8 @@
 import Form from "next/form";
 import { Employee } from "types";
 import EditEmployeeForm from "./edit-employee-form";
+import Link from "next/link";
+import { HiChevronLeft } from "react-icons/hi";
 
 export default async function Page({
   params,
@@ -15,6 +17,10 @@ export default async function Page({
 
   return (
     <>
+      <div className="flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600">
+        <HiChevronLeft />
+        <Link href="/employees">Back to Employees</Link>
+      </div>
       <h1 className="text-2xl font-bold">{`Edit ${employee.firstName} ${employee.lastName}`}</h1>
       <EditEmployeeForm employee={employee} />
     </>
