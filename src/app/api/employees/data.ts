@@ -8,7 +8,7 @@ export const data: Employee[] = [
     department: "Engineering",
     dateStarted: "1997-03-13T00:00:00.000Z",
     quote:
-      "The thing is, Bob, it's not that I'm lazy, it's that I just don't care.",
+      "The thing is, Bob, it's not that I'm lazy, it's that I just don't care!",
     status: "active",
     avatarUrl: "https://thispersondoesnotexist.com/image",
   },
