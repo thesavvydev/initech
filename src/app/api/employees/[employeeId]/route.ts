@@ -12,3 +12,39 @@ export async function GET(
 
   return NextResponse.error();
 }
+
+export async function PUT(
+  _: NextRequest,
+  { params }: { params: Promise<{ employeeId: string }> }
+) {
+  const { employeeId } = await params;
+
+  const employee = data.find((e) => e.id === Number(employeeId));
+  if (employee) return NextResponse.json(employee);
+
+  return NextResponse.error();
+}
+
+export async function PATCH(
+  _: NextRequest,
+  { params }: { params: Promise<{ employeeId: string }> }
+) {
+  const { employeeId } = await params;
+
+  const employee = data.find((e) => e.id === Number(employeeId));
+  if (employee) return NextResponse.json(employee);
+
+  return NextResponse.error();
+}
+
+export async function DELETE(
+  _: NextRequest,
+  { params }: { params: Promise<{ employeeId: string }> }
+) {
+  const { employeeId } = await params;
+
+  const employee = data.find((e) => e.id === Number(employeeId));
+  if (employee) return NextResponse.json(employee);
+
+  return NextResponse.error();
+}
