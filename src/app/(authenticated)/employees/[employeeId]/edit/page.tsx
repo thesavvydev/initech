@@ -1,8 +1,7 @@
-import Form from "next/form";
-import { Employee } from "types";
-import EditEmployeeForm from "./edit-employee-form";
 import Link from "next/link";
 import { HiChevronLeft } from "react-icons/hi";
+import { Employee } from "types";
+import EditEmployeeForm from "./edit-employee-form";
 
 export default async function Page({
   params,

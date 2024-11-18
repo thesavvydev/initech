@@ -1,25 +1,12 @@
-import {
-  Badge,
-  Button,
-  Card,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeadCell,
-  TableRow,
-  TextInput,
-  Tooltip,
-} from "flowbite-react";
+import { Badge, Button, Card, TextInput } from "flowbite-react";
 import Form from "next/form";
 import Link from "next/link";
+import { Fragment } from "react";
 import { HiX } from "react-icons/hi";
-import { twMerge } from "tailwind-merge";
 import { Employee } from "types";
 import groupBy from "utils/groupBy";
-import EmployeesTable from "./employees-table";
 import EmployeesCards from "./employee-cards";
-import { Fragment } from "react";
+import EmployeesTable from "./employees-table";
 
 export const metadata = {
   title: "Initech Employees",

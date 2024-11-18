@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "main": "src/index.tsx",
   "dependencies": {
     "@types/react-router-dom": "5.3.3",
     "flowbite-react": "^0.10.2",
@@ -17,7 +16,7 @@
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "autoprefixer": "^10.4.20",
-    "eslint": "^9.15.0",
+    "eslint": "8.57.0",
     "eslint-config-next": "^15.0.3",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.15",
@@ -27,7 +26,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check-ts": "tsc --noemit",
+    "check-all": "next lint && tsc --noemit"
   },
   "browserslist": [
     ">0.2%",

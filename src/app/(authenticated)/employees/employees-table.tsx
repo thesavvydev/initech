@@ -20,7 +20,7 @@ export default function EmployeesTable({
   employees: Employee[];
 }) {
   return (
-    <Card key={department} className="hidden md:table">
+    <Card key={department} className="hidden lg:table">
       <h3 className="text-xl font-semibold">{department}</h3>
       <Table hoverable>
         <TableHead>

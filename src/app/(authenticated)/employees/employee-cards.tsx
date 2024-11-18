@@ -12,11 +12,11 @@ export default function EmployeesCards({
 }) {
   return (
     <>
-      <h3 className="text-xl font-semibold  md:hidden">{department}</h3>
-      <div className="grid sm:grid-cols-2 gap-4 md:hidden">
+      <h3 className="text-xl font-semibold lg:hidden">{department}</h3>
+      <div className="grid sm:grid-cols-2 gap-4 lg:hidden">
         {employees.map((employee) => (
-          <Link href={`/employees/${employee.id}/edit`}>
-            <Card key={employee.id}>
+          <Link href={`/employees/${employee.id}/edit`} key={employee.id}>
+            <Card>
               <Avatar
                 bordered
                 color={
