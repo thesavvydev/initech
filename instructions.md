@@ -13,27 +13,32 @@ You may create a mock server, use GraphQL, or build a REST API. Time is of the e
 Build out the employee list and edit workflow as shown in the mockups using the API you created. Here’s a breakdown of the requirements:
 
 1. **List View**
-   - The employees are in a flat array from the API, but they need to be grouped by department in the list view.
-   - The yellow background color in the list mockup represents the hover state for each row.
-   - No detail view is required; route directly to an edit view.
+
+   - [x] The employees are in a flat array from the API, but they need to be grouped by department in the list view.
+   - [x] The yellow background color in the list mockup represents the hover state for each row.
+   - [x] No detail view is required; route directly to an edit view.
 
 2. **Edit View**
-   - Implement an editable form for employee details based on the data structure.
+
+   - [x] Implement an editable form for employee details based on the data structure.
 
 3. **Navigation**
-   - Finish styling the navigation bar and add a routeable item for **Employees**.
+
+   - [x] Finish styling the navigation bar and add a routeable item for **Employees**.
 
 4. **Filtering**
-   - Add a text input filter to search employees by name or other key fields.
-   - Employees should remain grouped by department as the list filters.
-   - If all employees in a department are filtered out, that department should be removed from the list view.
+
+   - [x] Add a text input filter to search employees by name or other key fields.
+   - [x] Employees should remain grouped by department as the list filters.
+   - [x] If all employees in a department are filtered out, that department should be removed from the list view.
 
 5. **Styling**
-   - Use the `src/styles.css` file to write raw CSS, or feel free to bring in a component library like Material UI to help with styling and layout if you prefer.
+
+   - [x] Use the `src/styles.css` file to write raw CSS, or feel free to bring in a component library like Material UI to help with styling and layout if you prefer.
 
 6. **Type Definitions**
-   - Use the `src/types.ts` file to define types for your API.
-   - You’ll need an interface for the **Employee** and types for each CRUD action implemented in the API.
+   - [x] Use the `src/types.ts` file to define types for your API.
+   - [x] You’ll need an interface for the **Employee** and types for each CRUD action implemented in the API.
 
 ## Notes
 
@@ -47,21 +52,20 @@ CodeSandbox will generate a unique URL for your project once you fork the projec
 
 Impress the team by going above and beyond with these extras:
 
-- **Additional API Functionality**: Implement `create` and `delete` methods.
+- [] **Additional API Functionality**: Implement `create` and `delete` methods.
 
-- **Enriched Data**: Expand the data file with additional details for each employee to create a more comprehensive and engaging UI experience.
+- [] **Enriched Data**: Expand the data file with additional details for each employee to create a more comprehensive and engaging UI experience.
 
-- **Unit and Integration Tests**: Add tests to cover key components and API methods.
+- [x] **Unit and Integration Tests**: Add tests to cover key components and API methods.
 
-- **Sorting**: Allow sorting of employees by name or department.
+- [x] **Sorting**: Allow sorting of employees by name or department.
 
-- **Responsiveness**: Make the UI responsive for mobile and tablet views.
+- [x] **Responsiveness**: Make the UI responsive for mobile and tablet views.
 
-- **Data Persistence**: Store data persistently (e.g., local storage or in-memory database).
+- [] **Data Persistence**: Store data persistently (e.g., local storage or in-memory database).
 
-- **Error Handling and User Feedback**: Implement user-friendly error messages and loading states.
+- [x] **Error Handling and User Feedback**: Implement user-friendly error messages and loading states.
 
+- [] **Advanced Filtering**: Allow filtering by multiple fields like department or status.
 
-- **Advanced Filtering**: Allow filtering by multiple fields like department or status.
-
-- **Dark Mode**: Add a toggle for dark mode to showcase design flexibility.
+- [] **Dark Mode**: Add a toggle for dark mode to showcase design flexibility.
