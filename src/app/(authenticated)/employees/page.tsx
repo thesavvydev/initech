@@ -5,7 +5,7 @@ import { Fragment } from "react";
 import { HiX } from "react-icons/hi";
 import { Employee } from "types";
 import groupBy from "utils/groupBy";
-import EmployeesCards from "./employee-cards";
+import EmployeeCards from "./employee-cards";
 import EmployeesTable from "./employees-table";
 
 export const metadata = {
@@ -60,7 +60,7 @@ export default async function Page({
       {Object.entries(employeesGroupedByDepartment).map(
         ([department, employees]) => (
           <Fragment key={department}>
-            <EmployeesCards employees={employees} department={department} />
+            <EmployeeCards employees={employees} department={department} />
             <EmployeesTable employees={employees} department={department} />
           </Fragment>
         )

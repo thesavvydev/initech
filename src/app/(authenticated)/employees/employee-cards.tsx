@@ -3,7 +3,7 @@ import { Avatar, Card } from "flowbite-react";
 import Link from "next/link";
 import { Employee } from "types";
 
-export default function EmployeesCards({
+export default function EmployeeCards({
   department,
   employees,
 }: {
@@ -13,10 +13,13 @@ export default function EmployeesCards({
   return (
     <>
       <h3 className="text-xl font-semibold lg:hidden">{department}</h3>
-      <div className="grid sm:grid-cols-2 gap-4 lg:hidden">
+      <div className="grid sm:grid-cols-2 gap-4 lg:hidden" role="group">
         {employees.map((employee) => (
           <Link href={`/employees/${employee.id}/edit`} key={employee.id}>
-            <Card>
+            <Card
+              role="listitem"
+              aria-label={`${employee.firstName} ${employee.lastName}`}
+            >
               <Avatar
                 bordered
                 color={
